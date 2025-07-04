@@ -60,26 +60,21 @@ fitness-tracking-microservices/
 ## 🔧 How to Run
 
 1. **Start Eureka Server**
-   ```bash
    cd eureka-server
    mvn spring-boot:run
-````
+
 
 2. **Start API Gateway**
-
-   ```bash
    cd api-gateway
    mvn spring-boot:run
-   ```
+
 
 3. **Start Other Services (in separate terminals)**
 
-   ```bash
    cd user-service && mvn spring-boot:run
    cd workout-service && mvn spring-boot:run
    cd goal-service && mvn spring-boot:run
    cd activity-service && mvn spring-boot:run
-   ```
 
 4. **Access Eureka Dashboard**
 

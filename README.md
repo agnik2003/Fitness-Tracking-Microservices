@@ -1,4 +1,4 @@
-```markdown
+
 # 🏋️‍♂️ Fitness Tracking Microservices
 
 A microservices-based fitness tracking application that allows users to manage workouts, track goals, and monitor health metrics in a modular, scalable, and robust system architecture.

@@ -1,78 +1,123 @@
-This is the Official repository of **Java Spring Boot AI Full Stack Microservices Course: Building Fitness Application**
+```markdown
+# 🏋️‍♂️ Fitness Tracking Microservices
 
-# The Ultimate Java and Spring Boot Mastery Roadmap
+A microservices-based fitness tracking application that allows users to manage workouts, track goals, and monitor health metrics in a modular, scalable, and robust system architecture.
 
-Welcome to your one-stop-shop for mastering Java and Spring Boot! This repository offers a comprehensive learning experience with high-quality resources and community support. Dive into over 150+ hours of premium content, with everything you need to excel at Java and Spring Boot development.
+---
 
-## 🎓 Learning Roadmap
+## 🚀 Overview
 
-Most of the courses below are available in **Udemy For Business**, so if you have subscription - you can get FREE access.
-Here’s a structured path to enhance your skills with detailed courses available:
+This project is a fitness application built using a **Microservices Architecture**. It consists of independently deployable services handling different functionalities such as user management, workout logging, goal tracking, and analytics.
 
-1. **[Spring Boot By Building Complex Projects Step by Step](https://link.embarkx.com/spring-boot) (85+ Hours of Content)**
-2. **[Master Spring Boot Microservices by Building eCommerce Project](https://link.embarkx.com/microservices) (55+ Hours of Content)**
-3. **[Learn Java with 60+ Hours of Content](http://link.embarkx.com/java) (60+ Hours of Content)**
-4. **[Master Spring Security with React JS + OAuth2](https://link.embarkx.com/spring-security) (34+ Hours of Content)**
-5. **[Master IntelliJ IDEA](http://link.embarkx.com/intellij) (3+ Hours of Content)**
+Each service communicates via **REST APIs** and registers with **Eureka Discovery Server**. Built with **Spring Boot**, the system also features **API Gateway**, **PostgreSQL**, and **MongoDB** for hybrid data handling.
 
+---
 
-## 🌟 With All Our Courses You Gain Access To
+## 🧱 Microservices Breakdown
 
-- 📝 **Notes:** Detailed and downloadable notes to accompany each lesson.
-- 💻 **Source Code:** Full access to the source code used in the tutorials.
-- 🤔 **Doubt Solving:** Responsive instructor and community support.
-- 🎥 **High-Quality HD Videos:** Easy to understand, high-definition video tutorials.
-- 🔄 **Free Lifetime Updates:** Continuous updates to course content at no extra cost.
+| Service              | Description                                  | Tech Stack                          |
+|----------------------|----------------------------------------------|-------------------------------------|
+| **API Gateway**       | Routes requests to appropriate services       | Spring Cloud Gateway                |
+| **Eureka Server**     | Service discovery and registration            | Netflix Eureka                      |
+| **User Service**      | Manages user profiles and authentication      | Spring Boot, PostgreSQL             |
+| **Workout Service**   | Logs daily workout routines                   | Spring Boot, MongoDB                |
+| **Goal Service**      | Handles fitness goal creation and progress    | Spring Boot, PostgreSQL             |
+| **Activity Service**  | Tracks daily fitness activities               | Spring Boot, MongoDB                |
 
-## 📚 Why Choose This Mastery Series?
+---
 
-With this series, you're not just learning; you're preparing to dominate the field of Java and Spring Boot development. Our structured learning path ensures that you build your skills progressively, with each course designed to build on the knowledge gained from the previous one.
+## 🛠️ Tech Stack
 
-### Join Us Now!
+- **Java 17**
+- **Spring Boot 3.x**
+- **Spring Cloud (Eureka, Gateway)**
+- **PostgreSQL & MongoDB**
+- **Docker (for containerization)**
+- **Maven**
+- **Lombok**
+- **Spring Security (basic setup)**
 
-Start your journey today to become a master at Java and Spring Boot. Our community and expert instructors are here to support your learning every step of the way. **Enroll and start building your future, today!**
+---
 
+## 📦 Folder Structure
 
+```
 
+fitness-tracking-microservices/
+│
+├── api-gateway/
+├── eureka-server/
+├── user-service/
+├── workout-service/
+├── goal-service/
+├── activity-service/
+└── README.md
 
+````
 
-# Usage Policy for Course Materials
+---
 
-## Instructor Information
+## 🔧 How to Run
 
-**Instructor:** Faisal Memon  
-**Company:** [EmbarkX.com](http://www.embarkx.com)
+1. **Start Eureka Server**
+   ```bash
+   cd eureka-server
+   mvn spring-boot:run
+````
 
-## Policy Overview
+2. **Start API Gateway**
 
-This document outlines the guidelines and restrictions concerning the use of course materials provided by EmbarkX, including but not limited to PDF presentations, code samples, and video tutorials.
+   ```bash
+   cd api-gateway
+   mvn spring-boot:run
+   ```
 
-### 1. Personal Use Only
+3. **Start Other Services (in separate terminals)**
 
-The materials provided in this course are intended for **your personal use only**. They are to be used solely for the purpose of learning and completing this course.
+   ```bash
+   cd user-service && mvn spring-boot:run
+   cd workout-service && mvn spring-boot:run
+   cd goal-service && mvn spring-boot:run
+   cd activity-service && mvn spring-boot:run
+   ```
 
-### 2. No Unauthorized Sharing or Distribution
+4. **Access Eureka Dashboard**
 
-You are **not permitted** to share, distribute, or publicly post any course materials on any websites, social media platforms, or other public forums without prior written consent from the instructor.
+   * [http://localhost:8761](http://localhost:8761)
 
-### 3. Intellectual Property
+---
 
-All course materials are protected by copyright laws and are the intellectual property of Faisal Memon and EmbarkX. Unauthorized use, reproduction, or distribution of these materials is **strictly prohibited**.
+## 📊 Features
 
-### 4. Reporting Violations
+* 🔐 Secure user sign-up and login (basic auth)
+* 📅 Log and track fitness activities daily
+* 🎯 Set and monitor fitness goals
+* 📈 View analytics of workout history
+* 🔄 Service discovery and seamless routing with API Gateway
 
-If you become aware of any unauthorized sharing or distribution of course materials, please report it immediately to [embarkxofficial@gmail.com](mailto:embarkxofficial@gmail.com).
+---
 
-### 5. Legal Action
+## 🧑‍💻 Author
 
-We reserve the right to take legal action against individuals or entities found to be violating this usage policy.
+> 👤 **Agnik Mondal**
+> 🎓 Computer Science & Engineering
+> 🏆 Hackathon Winner | MERN & Java Enthusiast
+> 🔗 [GitHub](https://github.com/agnik2003) | [LinkedIn](https://www.linkedin.com/in/agnik-mondal-11a37828a/)
 
-## Thank You
+---
 
-Thank you for respecting these guidelines and helping us maintain the integrity of our course materials.
+## 📌 Future Improvements
 
-## Contact Information
+* ✅ Add JWT-based authentication
+* ✅ Swagger/OpenAPI documentation for APIs
+* 📲 Frontend in React.js
+* 📈 Integrate Prometheus + Grafana for metrics
+* ☁️ Deploy to AWS/GCP with CI/CD
 
-- **Email:** [embarkxofficial@gmail.com](mailto:embarkxofficial@gmail.com)
-- **Website:** [www.embarkx.com](http://www.embarkx.com)
+---
 
+## 📃 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
